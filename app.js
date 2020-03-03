@@ -40,7 +40,7 @@ for (let i = 0; i < months.length; i++)
 {
   months[i].addEventListener("click", () => {
     // show the list when current/showed month is clicked
-    if (months[i].value == chosenMonth)
+    if (months[i].value == chosenMonth && !monthDropdown.classList.contains("open"))
       showMonths();
     // and move the list when a different month is clicked
     else {
@@ -59,9 +59,20 @@ prevBtn.addEventListener("click", () => {
   if (monthDropdown.classList.contains("open")) hideMonths();
   if(chosenMonth > 0)
   {
-    months[chosenMonth].classList.remove("current-month");
-    moveList(monthDropdown, --chosenMonth);
-    months[chosenMonth].classList.add("current-month");
+    // we trigger the animation for the prev and next months
+    // and wait til the end of the respective animations to change the definitive values
+    console.log(chosenMonth);
+    months[chosenMonth].classList.add("change-left");
+    months[chosenMonth-1].classList.add("change-right");
+    months[chosenMonth].addEventListener("transitionend", e => {
+      if (e.propertyName === 'transform')
+      {
+        months[chosenMonth].classList.remove("current-month", "change-left");
+        moveList(monthDropdown, --chosenMonth);
+        months[chosenMonth].classList.add("current-month");
+        months[chosenMonth].classList.remove("change-right");
+      }
+    })
   }
 });
 nextBtn.addEventListener("click", () => {

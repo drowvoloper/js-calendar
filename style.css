@@ -42,7 +42,7 @@ li {
   line-height: 80px;
 }
 
-li:hover {
+li:hover:not(.prev-month, .next-month) {
   cursor: pointer;
   background-color: pink;
   color: white;
@@ -67,6 +67,22 @@ li:hover {
 .month:not(.current-month) {
   opacity: 0;
   pointer-events: none;
+}
+
+.current-month {
+  transition: transform 0.4s ease, font-size 0.3s ease;
+}
+
+.change-left {
+  transition: all 0.3s ease-in;
+  font-size: 0px;
+  transform: translateX(80%);
+}
+
+.change-right {
+  transition: all 0.3s ease-in;
+  font-size: 0px;
+  transform: translateX(-80%);
 }
 
 #chooseYear {
