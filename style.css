@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-calendar {
+  width: 80vw;
+}
+
+.select-class {
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+  border: 1px solid pink;
+  display: flex;
+  /*overflow: hidden;*/
+}
+
+ul {
+  margin-top: -1px;
+}
+
+ul,
+li {
+  width: 100%;
+  text-align: center;
+  list-style: none;
+  font-size: 45px;
+  color: pink;
+}
+
+li {
+  height: 80px;
+  line-height: 80px;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: pink;
+  color: white;
+}
+
+#prevBtn,
+#nextBtn {
+  font-weight: bold;
+  width: 10%;
+  height: 100%;
+  font-size: 30px;
+  background-color: pink;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+#chooseMonth {
+  width: 80%;
+}
+
+#chooseYear {
+  width: 20%;
+}
