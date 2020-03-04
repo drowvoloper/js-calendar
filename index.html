@@ -8,10 +8,13 @@
   <title>JS Responsive Calendar</title>
 </head>
 <body>
+  <h1>Vanilla JS Calendar</h1>
   <main class="main-calendar">
   <div class="select-class">
     <ul id="chooseYear"></ul>
-    <div id="prevBtn"><</div>
+    <div id="prevBtn">
+      <div class="circle"><</div>
+    </div>
     <ul id="chooseMonth">
       <li value="0" class="month">january</li>
       <li value="1" class="month">february</li>
@@ -28,7 +31,7 @@
     </ul>
     <div id="nextBtn">></div>
   </div>
-  <!--<div id="cellsGrid">
+  <div id="cellsGrid">
     <div class="grid-row day-names">
       <div class="grid-cell day-name">SUN</div>
       <div class="grid-cell day-name">MON</div>
@@ -38,7 +41,7 @@
       <div class="grid-cell day-name">FRI</div>
       <div class="grid-cell day-name">SAT</div>
     </div>
-  </div>-->
+  </div>
 </main>
 
 <script src="./app.js"></script>

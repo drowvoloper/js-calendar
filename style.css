@@ -4,21 +4,24 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  text-align: center;
+  font-family: Arial;
+  color: #1c1f33;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .main-calendar {
-  width: 80vw;
+  width: 600px;
+  height: 200px;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .select-class {
-  height: 80px;
-  line-height: 80px;
+  height: 50px;
+  line-height: 50px;
   width: 100%;
   border: 1px solid #666370;
   display: flex;
@@ -27,7 +30,6 @@ body {
 
 ul {
   list-style-position: inside;
-  margin-top: -1px;
 }
 
 ul,
@@ -35,13 +37,13 @@ li {
   width: 100%;
   text-align: center;
   list-style: none;
-  font-size: 45px;
+  font-size: 25px;
   color: #666370;
 }
 
 li {
-  height: 80px;
-  line-height: 80px;
+  height: 50px;
+  line-height: 50px;
 }
 
 li:hover {
@@ -74,11 +76,9 @@ li:hover {
 
 #chooseMonth {
   width: 80%;
-  margin-right:-1px;
 }
 
 #chooseYear {
-  margin-left: -1px;
   width: 20%;
 }
 
@@ -90,4 +90,34 @@ li:hover {
 
 .current {
   transition: opacity 1s ease;
+  background-color: white;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.grid-cell {
+  background-color: lightgray;
+  width: 17%;
+  height:80px;
+  border: 0.5px solid #666370;
+}
+
+.day-name {
+  background-color: #666370;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  font-family: Arial;
+}
+
+.day-num {
+  background-color:whitesmoke;
+  color: #666370;
+}
+
+.today {
+  background-color: lightblue;
 }
