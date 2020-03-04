@@ -30,6 +30,14 @@ const showMonths = () => {
     if (j != chosenMonth) months[j].classList.add("current-month");
 };
 
+// change to show the current/chosenMonth
+const changeMonth = (prevMonth, nextMonth) => {
+  months[prevMonth].classList.remove("current-month");
+  chosenMonth = nextMonth;
+  months[chosenMonth].classList.add("current-month");
+  moveList(monthDropdown, chosenMonth);
+};
+
 // Style lists to show the default(or current) value
 // months list
 moveList(monthDropdown, chosenMonth);
@@ -45,10 +53,7 @@ for (let i = 0; i < months.length; i++)
     // and move the list when a different month is clicked
     else {
       hideMonths();
-      months[chosenMonth].classList.remove("current-month");
-      chosenMonth = months[i].value;
-      months[chosenMonth].classList.add("current-month");
-      moveList(monthDropdown, chosenMonth);
+      changeMonth(chosenMonth, months[i].value);
     }
   });
 }
@@ -57,30 +62,9 @@ for (let i = 0; i < months.length; i++)
 // month changes when they are clicked
 prevBtn.addEventListener("click", () => {
   if (monthDropdown.classList.contains("open")) hideMonths();
-  if(chosenMonth > 0)
-  {
-    // we trigger the animation for the prev and next months
-    // and wait til the end of the respective animations to change the definitive values
-    console.log(chosenMonth);
-    months[chosenMonth].classList.add("change-left");
-    months[chosenMonth-1].classList.add("change-right");
-    months[chosenMonth].addEventListener("transitionend", e => {
-      if (e.propertyName === 'transform')
-      {
-        months[chosenMonth].classList.remove("current-month", "change-left");
-        moveList(monthDropdown, --chosenMonth);
-        months[chosenMonth].classList.add("current-month");
-        months[chosenMonth].classList.remove("change-right");
-      }
-    })
-  }
+  if(chosenMonth > 0) changeMonth(chosenMonth, chosenMonth - 1);
 });
 nextBtn.addEventListener("click", () => {
   if (monthDropdown.classList.contains("open")) hideMonths();
-  if(chosenMonth < 11)
-  {
-    months[chosenMonth].classList.remove("current-month");
-    moveList(monthDropdown, ++chosenMonth);
-    months[chosenMonth].classList.add("current-month");
-  }
+  if(chosenMonth < 11) changeMonth(chosenMonth, chosenMonth + 1);
 });
