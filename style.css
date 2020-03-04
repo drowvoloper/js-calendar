@@ -26,6 +26,7 @@ body {
 }
 
 ul {
+  list-style-position: inside;
   margin-top: -1px;
 }
 
@@ -76,27 +77,17 @@ li:hover {
   margin-right:-1px;
 }
 
-.month:not(.current-month) {
+#chooseYear {
+  margin-left: -1px;
+  width: 20%;
+}
+
+.month:not(.current),
+.year:not(.current) {
   opacity: 0;
   pointer-events: none;
 }
 
-.current-month {
+.current {
   transition: opacity 1s ease;
-}
-
-.change-left {
-  transition: all 0.3s ease-in;
-  font-size: 0px;
-  transform: translateX(80%);
-}
-
-.change-right {
-  transition: all 0.3s ease-in;
-  font-size: 0px;
-  transform: translateX(-80%);
-}
-
-#chooseYear {
-  width: 20%;
 }
